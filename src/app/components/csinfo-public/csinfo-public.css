@@ -1,0 +1,25 @@
+.bg-image {
+    background-image: url('../../../assets/images/banner.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-size: cover;
+    height: 200px;
+}
+
+.csinfo-body {
+    margin: 40px
+}
+
+.mat-stroked-button {
+    border-color:#3f51b5;
+    color:  #3f51b5;
+}
+
+.m-20{
+    margin: 15px;
+}
+
+
+.example-button-row {
+    display: inline;   
+  }

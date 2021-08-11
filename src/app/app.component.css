@@ -1,0 +1,40 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.btn-border {
+    border: none;
+    background-color: white;
+}
+
+.mat-toolbar {
+    background-color: white;
+    color: rgba(0, 0, 0, .87);
+}
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+    height: 60px;
+}
+
+.clr-O {
+    color: #eb7d34;
+    font-size: larger;
+}
+
+.clr-B {
+    color: #3480eb;
+    font-size: larger;
+}
+
+.f-r {
+    float: right;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.clr-lb {
+    color: #03b5fc;
+}

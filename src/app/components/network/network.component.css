@@ -1,0 +1,67 @@
+.csinfo-body {
+    margin: 10px;
+    background: #F4F0EF;
+}
+
+table {
+    width: 100%;
+}
+
+.p-cls {
+    font-size: 14px;
+    padding-top: 10px;
+}
+
+.mat-stroked-button {
+    border-color: #3f51b5;
+    color: #3f51b5;
+}
+.pl-10{
+    padding-left: 10px;
+}
+.pt-10{
+    padding-top: 10px;
+}
+.m-20 {
+    margin: 12px;
+}
+.box:nth-of-type(odd) {
+    background-color:#F5F7F7;
+    }
+        
+    .box:nth-of-type(even) {
+    background-color:#D1F3F5;
+    }
+    
+    .box {
+   height: 36px;
+   font-size: 12px;
+    }
+    
+.mat-raised-button {
+    line-height: 32px;
+    font-size: 12px;
+}
+
+.example-button-row {
+    display: inline;
+}
+
+.mat-form-field,
+.mat-form-field-infix {
+    width: 800px;
+    /* reduces the size of the field i.e space*/
+}
+
+::ng-deep .mat-form-field-flex>.mat-form-field-infix {
+    padding: 0.4em 0px !important;
+}
+
+::ng-deep .mat-form-field-label-wrapper {
+    top: -1.5em;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    width: 133.33333%;
+}

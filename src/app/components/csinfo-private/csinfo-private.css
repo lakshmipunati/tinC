@@ -1,0 +1,57 @@
+.bg-image {
+    background-image: url('../../../assets/images/banner.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-size: cover;
+    height: 200px;
+}
+
+.csinfo-body {
+    margin: 40px
+}
+
+.mat-stroked-button {
+    border-color: #3f51b5;
+    color: #3f51b5;
+}
+
+.m-20 {
+    margin: 15px;
+}
+
+.mat-raised-button {
+    line-height: 32px;
+}
+
+.example-button-row {
+    display: inline;
+}
+
+.mat-form-field,
+.mat-form-field-infix {
+    width: 800px;
+    /* reduces the size of the field i.e space*/
+}
+
+::ng-deep .mat-form-field-flex>.mat-form-field-infix {
+    padding: 0.4em 0px !important;
+}
+
+::ng-deep .mat-form-field-label-wrapper {
+    top: -1.5em;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    width: 133.33333%;
+}
+.category{
+    font-size: 12px;
+    color: blue;
+    padding: 12px
+}
+.m-6{
+    margin:6px;
+    background: #E3DAD8;
+    font-size: 13px;
+}

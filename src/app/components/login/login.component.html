@@ -1,0 +1,24 @@
+<h2 mat-dialog-title class="center">Login</h2>
+<mat-dialog-content class="center">
+    <form class="text-center" [formGroup]="loginForm">
+        <div style="margin-top: 20px;">
+            <mat-form-field appearance="outline">
+                <mat-label>User Name</mat-label>
+                <input matInput #input placeholder="User Name" formControlName="userName" required>
+                <mat-error *ngIf="loginForm.get('userName').touched || loginForm?.get('userName').hasError('required')">
+                    Username is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div style="margin-top: 10px;">
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput #input type="password" placeholder="Password" formControlName="password" required>
+                <mat-error *ngIf="loginForm.get('password').hasError('required')">Password is required</mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="center">
+    <button mat-raised-button class="mat-primary" type="submit" (click)="loginData()">Login</button>
+    <button mat-button mat-raised-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

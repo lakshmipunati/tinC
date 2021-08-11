@@ -1,0 +1,174 @@
+<div class="csinfo-body">
+    <div>
+        <mat-icon color="warn" style="font-size: 50px;margin: 30px;">description</mat-icon>
+        <mat-label style="color:  #3f51b5;"><b>Cost Sharing Information</b></mat-label>
+    </div>
+    <div style="margin-right:30px;margin-left: 30px;display: flex;">
+        <button mat-raised-button class="m-20" type="button" (click)="backToResult()">Back to Results</button>
+        <p class="p-cls">CPT 2744, Under Repair, Revision & Reconstruction Procedures on the Femur</p>
+    </div>
+    <div style="margin-right:30px;margin-left: 30px;">
+        <button mat-raised-button class="mat-primary m-20" color="warn" type="button">In Network</button>
+        <button mat-raised-button class="m-20" type="button">Out of Network</button>
+
+    </div>
+    <div style="margin-right:30px;margin-left: 30px;" *ngIf="!showHospitalDetails">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="Hospital">
+                <th mat-header-cell *matHeaderCellDef> Hospital </th>
+                <td mat-cell *matCellDef="let element" (click)="getHospitalDetails()"> {{element.Hospital}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="Provider">
+                <th mat-header-cell *matHeaderCellDef> Provider </th>
+                <td mat-cell *matCellDef="let element"> {{element.Provider}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="NPI">
+                <th mat-header-cell *matHeaderCellDef> NPI </th>
+                <td mat-cell *matCellDef="let element"> {{element.NPI}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="Copay">
+                <th mat-header-cell *matHeaderCellDef> Copay </th>
+                <td mat-cell *matCellDef="let element"> {{element.Copay}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Deductable">
+                <th mat-header-cell *matHeaderCellDef> Deductable </th>
+                <td mat-cell *matCellDef="let element"> {{element.Deductable}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Coinsurance">
+                <th mat-header-cell *matHeaderCellDef> Coinsurance </th>
+                <td mat-cell *matCellDef="let element"> {{element.Coinsurance}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="NegotiatedRate">
+                <th mat-header-cell *matHeaderCellDef> Negotiated Rate </th>
+                <td mat-cell *matCellDef="let element"> {{element.NegotiatedRate}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+
+    <div style="margin-right:30px;margin-left: 30px;display: flex;" *ngIf="showHospitalDetails">
+        <div style="width: 30%;">
+            <p>Hospital</p>
+            <mat-divider></mat-divider>
+            <div *ngFor="let data of dataSource" class="box">
+               <div class="pl-10 pt-10"> {{data.Hospital}}</div>
+            </div>
+
+        </div>
+        <div style="width: 70%;">
+            <table mat-table [dataSource]="hospitalDetailInfo" class="mat-elevation-z8" style="width: 90%;margin-left: 20px;margin-top:10px">
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="billingCode">
+                    <th mat-header-cell *matHeaderCellDef> Billing Code </th>
+                    <td mat-cell *matCellDef="let element" (click)="getHospitalDetails()"> {{element.billingCode}} </td>
+                </ng-container>
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef> description </th>
+                    <td mat-cell *matCellDef="let element" (click)="getHospitalDetails()"> {{element.description}} </td>
+                </ng-container>
+    
+                <!-- Name Column -->
+                <ng-container matColumnDef="provider">
+                    <th mat-header-cell *matHeaderCellDef> Provider </th>
+                    <td mat-cell *matCellDef="let element"> {{element.provider}} </td>
+                </ng-container>
+    
+                <!-- Weight Column -->
+                <ng-container matColumnDef="NPI">
+                    <th mat-header-cell *matHeaderCellDef> NPI </th>
+                    <td mat-cell *matCellDef="let element"> {{element.NPI}} </td>
+                </ng-container>
+    
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="TIN">
+                    <th mat-header-cell *matHeaderCellDef> TIN </th>
+                    <td mat-cell *matCellDef="let element"> {{element.TIN}} </td>
+                </ng-container>
+    
+                <ng-container matColumnDef="placeOfService">
+                    <th mat-header-cell *matHeaderCellDef> placeOfService </th>
+                    <td mat-cell *matCellDef="let element"> {{element.placeOfService}} </td>
+                </ng-container>
+    
+                <tr mat-header-row *matHeaderRowDef="hospitalInfoColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: hospitalInfoColumns;"></tr>
+            </table>
+
+            <table mat-table [dataSource]="hospitalDetailInfo2" class="mat-elevation-z8" style="width: 90%;margin-left: 20px;margin-top:10px;">
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="billingCode">
+                    <th mat-header-cell *matHeaderCellDef> Copay </th>
+                    <td mat-cell *matCellDef="let element" (click)="getHospitalDetails()"> {{element.billingCode}} </td>
+                </ng-container>
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef> Deductable </th>
+                    <td mat-cell *matCellDef="let element" (click)="getHospitalDetails()"> {{element.description}} </td>
+                </ng-container>
+    
+                <!-- Name Column -->
+                <ng-container matColumnDef="provider">
+                    <th mat-header-cell *matHeaderCellDef> Coinsurance </th>
+                    <td mat-cell *matCellDef="let element"> {{element.provider}} </td>
+                </ng-container>
+    
+                <!-- Weight Column -->
+                <ng-container matColumnDef="NPI">
+                    <th mat-header-cell *matHeaderCellDef> Negotiated rates </th>
+                    <td mat-cell *matCellDef="let element"> {{element.NPI}} </td>
+                </ng-container>
+    
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="TIN">
+                    <th mat-header-cell *matHeaderCellDef> Distance </th>
+                    <td mat-cell *matCellDef="let element"> {{element.TIN}} </td>
+                </ng-container>
+    
+                <tr mat-header-row *matHeaderRowDef="hospitalInfoColumns2"></tr>
+                <tr mat-row *matRowDef="let row; columns: hospitalInfoColumns2;"></tr>
+            </table>
+            <table mat-table [dataSource]="hospitalDetailInfo3" class="mat-elevation-z8 " style="width: 90%;margin-left: 20px;margin-top:10px">
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="billingCode">
+                    <th mat-header-cell *matHeaderCellDef> Copay </th>
+                    <td mat-cell *matCellDef="let element" (click)="getHospitalDetails()"> {{element.billingCode}} </td>
+                </ng-container>
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef> Deductable </th>
+                    <td mat-cell *matCellDef="let element" (click)="getHospitalDetails()"> {{element.description}} </td>
+                </ng-container>
+    
+                <!-- Name Column -->
+                <ng-container matColumnDef="provider">
+                    <th mat-header-cell *matHeaderCellDef> Coinsurance </th>
+                    <td mat-cell *matCellDef="let element"> {{element.provider}} </td>
+                </ng-container>
+    
+                <!-- Weight Column -->
+                <ng-container matColumnDef="NPI">
+                    <th mat-header-cell *matHeaderCellDef> Negotiated rates </th>
+                    <td mat-cell *matCellDef="let element"> {{element.NPI}} </td>
+                </ng-container>
+    
+                <tr mat-header-row *matHeaderRowDef="hospitalInfoColumns3"></tr>
+                <tr mat-row *matRowDef="let row; columns: hospitalInfoColumns3;"></tr>
+            </table>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,40 @@
+<div class="bg-image">
+
+</div>
+<div class="csinfo-body">
+    <mat-icon color="warn" style="font-size: 50px;margin-right: 30px;">description</mat-icon>
+    <mat-label style="color:  #3f51b5;"><b>Cost Sharing Information</b></mat-label>
+    <div>
+        <button mat-raised-button class="mat-primary m-20" color="warn" type="button">Procedure</button>
+        <button mat-raised-button class="m-20" type="button">Prescription Drug</button>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Enter Keyword</mat-label>
+                <input matInput #input placeholder="Enter Keyword">
+            </mat-form-field>
+            <button mat-raised-button class="mat-primary m-20" type="button">Search</button>
+        </div>
+        <div>
+            <span>Or Select from categories below</span><br />
+            <button mat-raised-button class="m-6" type="button">Common Surgeries & Procedures</button>
+            <button mat-raised-button class="m-6" type="button">Cardiac / Cardiothoracic</button>
+            <button mat-raised-button class="m-6" type="button">General / Miscellaneous</button>
+            <button mat-raised-button class="m-6" type="button">Neonotal/ NICU Procedures</button>
+            <button mat-raised-button class="m-6" type="button">Neosurgery & Procedures</button>
+            <button mat-raised-button class="m-6" type="button">Oncology</button>
+            <button mat-raised-button class="m-6" type="button">Ophthalmology</button>
+            <button mat-raised-button class="m-6" type="button" (click)="getSelectedTypeInfo()">Orthopedic</button>
+            <button mat-raised-button class="m-6" type="button">Pediatric</button>
+            <button mat-raised-button class="m-6" type="button">Sports Medicine</button>
+            <button mat-raised-button class="m-6" type="button">Transplantation </button>
+            <button mat-raised-button class="m-6" type="button">Dermatalogy</button>
+            <button mat-raised-button class="m-6" type="button">Obstetrics and Gynaecology</button>
+            <button mat-raised-button class="m-6" type="button">Urology</button>
+        </div>
+        <div *ngIf="showSelectedTypeInfo">
+         <div *ngFor="let data of categoryList">
+          <div class="category" (click)="getCategoryDetails()">{{data.key}}</div>
+         </div>
+        </div>
+    </div>
+</div>

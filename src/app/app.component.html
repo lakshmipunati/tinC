@@ -1,0 +1,21 @@
+
+<!-- <home-page></home-page> -->
+
+<mat-toolbar>
+    <button mat-icon-button class="example-icon btn-border" aria-label="Example icon-button with menu icon">
+        <mat-icon color="primary" style="font-weight: 700;">add</mat-icon>
+    </button>
+    <span class="clr-O">DemoCo</span>&nbsp;<span class="clr-B">Health</span>
+    <span class="example-spacer"></span>
+
+    <span class="fs-14">About Us</span> &nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="fs-14">Products</span> &nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="fs-14">Services</span> &nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="fs-14">Contact Us</span> &nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="fs-14" (click)="openDialog()">Login</span> &nbsp;&nbsp;&nbsp;&nbsp;
+    <button mat-icon-button class="example-icon btn-border" aria-label="Example icon-button with share icon">
+        <mat-icon>search</mat-icon>
+    </button>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

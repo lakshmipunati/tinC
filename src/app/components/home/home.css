@@ -1,0 +1,80 @@
+.app-header {
+    height: 20px;
+    margin: 20px !important;
+    font-style: normal;
+}
+
+.app-body {    
+    height: 570px;  
+    display: flex;
+    justify-content: flex-end;
+    background-repeat: no-repeat;
+    background-image: url('../../../assets/images/doctor.jpg');
+    background-size: cover;
+    background-size: 100%;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.card {
+    height: 80px;
+    width: 80px;
+    font-size: 12px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.card-main {
+    margin: 10px;
+    display: flex;
+}
+
+.card-sub {
+    display: inline;
+    margin-top: 80px;
+    margin-right: 50px;
+}
+
+.card-icon {
+    text-align: center;
+    color: #fc9403;
+}
+
+.clr-O {
+    color: #eb7d34;
+    font-size: larger;
+}
+
+.clr-B {
+    color: #3480eb;
+    font-size: larger;
+}
+
+.f-r {
+    float: right;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.clr-lb {
+    color: #03b5fc;
+}
+
+.btn-border {
+    border: none;
+    background-color: white;
+}
+
+.mat-toolbar {
+    background-color: white;
+    color: rgba(0, 0, 0, .87);
+}
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+    height: 60px;
+}
