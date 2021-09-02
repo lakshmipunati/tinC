@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ErrorStateMatcher } from '@angular/material/core'
 import { FormBuilder, FormGroup, FormControl, NgForm, Validators, FormGroupDirective } from '@angular/forms';
-
+import { CommonAPIService } from '../../services/common-api.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,8 +12,12 @@ import { FormBuilder, FormGroup, FormControl, NgForm, Validators, FormGroupDirec
 
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  isLoggedin:boolean=false;
-  constructor(private _formBuilder: FormBuilder,) { }
+  isLoggedin: boolean = false;
+
+  constructor(private _formBuilder: FormBuilder,
+    private _commonHttpService: CommonAPIService,
+    private dialogRef: MatDialogRef<LoginComponent>,
+    private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.buildLoginForm();
@@ -19,13 +25,26 @@ export class LoginComponent implements OnInit {
 
   buildLoginForm() {
     return this.loginForm = this._formBuilder.group({
-      userName: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     })
   }
 
-  loginData(){
+  loginData() {
     this.isLoggedin = true;
+    this._commonHttpService.login(this.loginForm.value).subscribe((response) => {
+      if (response.loggedIn_status == 1) {
+        localStorage.setItem('authToken', response.token);
+        //alert("Login Success")
+        
+        this._snackBar.open('Login Success', 'Undo', {
+          duration: 2000
+        });
+        this.dialogRef.close(response.user_name);
+      } else {
+        alert("Login Failed" + response.error)
+      }
+    })
   }
 
 }

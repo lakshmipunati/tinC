@@ -9,8 +9,8 @@ import { CategoryDetailsComponent } from './components/category-details/category
 const routes: Routes = [
   { path: 'costsharing-private', component: CostSharingPrivateComponent },
   { path: 'costsharing-public', component: CostSharingPublicComponent },
-  { path: 'network', component: NetworkComponent },
-  {path: 'category-details', component: CategoryDetailsComponent},
+  { path: 'network', component: NetworkComponent ,data : {}},
+  {path: 'category-details/:categoryKey', component: CategoryDetailsComponent},
   { path: '**', component: HomeComponent }
 ];
 

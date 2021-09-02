@@ -31,10 +31,19 @@
     float: right;
 }
 
+.mat-mini-fab {
+    width: 30px;
+    height: 30px;
+}
+
 .fs-14 {
     font-size: 14px;
 }
 
 .clr-lb {
     color: #03b5fc;
+}
+
+.cursor{
+    cursor: pointer;
 }

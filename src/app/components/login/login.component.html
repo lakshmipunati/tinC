@@ -4,9 +4,9 @@
         <div style="margin-top: 20px;">
             <mat-form-field appearance="outline">
                 <mat-label>User Name</mat-label>
-                <input matInput #input placeholder="User Name" formControlName="userName" required>
-                <mat-error *ngIf="loginForm.get('userName').touched || loginForm?.get('userName').hasError('required')">
-                    Username is required</mat-error>
+                <input matInput #input placeholder="User Name" formControlName="email" required>
+                <mat-error *ngIf="loginForm.get('email').touched || loginForm?.get('email').hasError('required')">
+                    email is required</mat-error>
             </mat-form-field>
         </div>
         <div style="margin-top: 10px;">

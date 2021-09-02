@@ -1,3 +1,54 @@
-<p>category-details works!</p>
+<div class="csinfo-body">
+    <div style="padding: 10px;"><mat-label style="color:  #3f51b5;margin-left: 20px;"><b>List of categories</b></mat-label></div>
+    <table style="width: 90%;margin-left: 20px;margin-top:10px;">
+        <tr>
+            <th class="th">S.No</th>
+            <th class="th">Billing Code</th>
+            <th class="th">Description</th>
+            <th class="th">Summary</th>
+        </tr>
+        <tr *ngFor='let data of subCategoryList' (click)="getDetailsofCategory(data)" class="cursor">
+            <td class="td">{{data.id}}</td>
+            <td class="td">{{data.CPT_code}}</td>
+            <td class="td">{{data.short_description}}</td>
+            <td class="td">{{data.summary}}</td>
+        </tr>
+    </table>
 
-<button (click)="getDetailsofCategory()">network</button>
+      <!-- --footer -->
+      <div class="footer">
+        <div style="padding-top: 20px;padding-left: 10px;margin-top: 10px; width:30%">
+            <button mat-icon-button class="example-icon btn-border" aria-label="Example icon-button with menu icon">
+                <mat-icon style="font-weight: 700;color: whitesmoke;">add</mat-icon>
+            </button>
+            <span style="font-size: 18px;font-weight: 500;">DemoCO Health</span>
+            <div style="padding-left: 15px;">
+            <!-- <p style="font-size: 13px;">Lorem Ipsum is simply dummy text .</p> -->
+            <p class="fs-13" style="padding-left: 25px;"> Lucalis Varius sit amit Ipsum</p>
+            <p class="fs-13"><mat-icon style="height: 20px;width: 20px;">phone</mat-icon>&nbsp;&nbsp; 000- 1111- 111- 222</p>
+            <p class="fs-13"><mat-icon style="height: 20px;width: 20px;">mail_outline</mat-icon>&nbsp;&nbsp; abc@abc.com</p>
+        </div>
+        </div>
+        <div style="padding-top: 30px;margin-top: 10px; width:30%">
+            <span style="font-size: 16px;">Quick Links</span>
+            <mat-divider style="margin-top: 5px;"></mat-divider>
+           <div style="padding-top: 10px;float:left;padding-right: 16px;" class="fs-13">
+            <p>Find a Medical provider</p>
+            <p>Find a Dental provider</p>
+            <p>Shop at Our Store</p>
+            <p>Health and Wellness Tools</p>            
+           </div> 
+           <div style="padding-top: 10px;padding-left: 10px;" class="fs-13">
+            <p>Documents Library</p>
+            <p>Cost Sharing Information</p>
+           </div> 
+        </div>
+    </div>
+    <div class="footer-end">
+        <span class="pt-10">About Us</span> &nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="pt-10">Privacy Policy</span> &nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="pt-10">Services</span> &nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="pt-10">Contact Us</span> &nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="pt-10">Terms & Conditions</span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+</div>

@@ -1,4 +1,3 @@
-
 <!-- <home-page></home-page> -->
 
 <mat-toolbar>
@@ -12,10 +11,21 @@
     <span class="fs-14">Products</span> &nbsp;&nbsp;&nbsp;&nbsp;
     <span class="fs-14">Services</span> &nbsp;&nbsp;&nbsp;&nbsp;
     <span class="fs-14">Contact Us</span> &nbsp;&nbsp;&nbsp;&nbsp;
-    <span class="fs-14" (click)="openDialog()">Login</span> &nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="fs-14" (click)="openDialog()" *ngIf="!isLoggedIn">Login</span> &nbsp;&nbsp;&nbsp;&nbsp;
     <button mat-icon-button class="example-icon btn-border" aria-label="Example icon-button with share icon">
         <mat-icon>search</mat-icon>
     </button>
+    <!-- <button mat-mini-fab color="primary" aria-label="Example icon-button with share icon" > -->
+    <mat-icon *ngIf="isLoggedIn">account_circle</mat-icon>
+    <!-- </button> &nbsp;&nbsp; -->
+    <span class="fs-14" *ngIf="isLoggedIn">{{loginUsername}}</span>&nbsp;&nbsp;
+    <button mat-icon-button class="example-icon btn-border" *ngIf="isLoggedIn"
+        aria-label="Example icon-button with share icon" (click)="logoutUser()">
+        <mat-icon>
+            power_settings_new
+        </mat-icon>
+    </button>
 </mat-toolbar>
+
 
 <router-outlet></router-outlet>

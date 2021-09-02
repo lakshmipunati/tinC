@@ -1,6 +1,7 @@
 .csinfo-body {
     margin: 10px;
     background: #F4F0EF;
+    min-height: 550px;
 }
 
 table {
@@ -16,28 +17,40 @@ table {
     border-color: #3f51b5;
     color: #3f51b5;
 }
-.pl-10{
+
+button:focus {
+    background: #3f51b5!important;
+    color: #FFF
+}
+
+.pl-10 {
     padding-left: 10px;
 }
-.pt-10{
+
+.pt-10 {
     padding-top: 10px;
 }
+
 .m-20 {
     margin: 12px;
 }
+
 .box:nth-of-type(odd) {
-    background-color:#F5F7F7;
-    }
-        
-    .box:nth-of-type(even) {
-    background-color:#D1F3F5;
-    }
-    
-    .box {
-   height: 36px;
-   font-size: 12px;
-    }
-    
+    background-color: #F5F7F7!important;
+    color: black;
+}
+
+.box:nth-of-type(even) {
+    background-color: #D1F3F5;
+    color:black;
+}
+
+.box {
+    height: 36px;
+    font-size: 12px;
+    background-color: #F5F7F7
+}
+
 .mat-raised-button {
     line-height: 32px;
     font-size: 12px;
@@ -64,4 +77,85 @@ table {
 ::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
     transform: translateY(-1.1em) scale(.75);
     width: 133.33333%;
+}
+
+table {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    width: 100%;
+    background: #FFF;
+    border-spacing: 0;
+}
+
+.td,
+.th {
+    text-align: center;
+    padding: 8px;
+    font-weight: 100;
+}
+
+td {
+    font-size: 14px;
+}
+
+tr {
+    height: 48px;
+}
+
+th {
+    font-size: 14px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(0, 0, 0, .12);
+}
+
+.cursor {
+    cursor: pointer
+}
+
+.icon-text {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.highlight {
+    background-color: blue;
+    color: white;
+}
+
+.mat-divider {
+    border-top-color: white;
+}
+
+.pt-10 {
+    padding-top: 10px;
+}
+
+.footer {
+    height: 220px;
+    background-color: #5b5c5e;
+    color: whitesmoke;
+    display: flex;
+    margin-top: 30px;
+}
+.footer-body{
+    font-size:13px;padding-top: 10px;float:left;padding-right: 16px;
+}
+.footer-end {
+    height: 40px;
+    background-color: black;
+    color: whitesmoke;
+    display: flex;
+    font-size: 14px;
+    text-align: center;
+    justify-content: center;
+}
+.footer-body2{
+    padding-top: 30px;margin-top: 10px; width:30%
+}
+.fs-13{
+    font-size: 13px;
+}
+.sub-footer{
+    padding-top: 20px;padding-left: 10px;margin-top: 10px; width:30%
 }

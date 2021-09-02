@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'home-page',
   templateUrl: './home.html',
@@ -14,8 +13,12 @@ export class HomeComponent {
   title = 'tinC';
 
   navigateToCostSharing(){
+    let userName = localStorage.getItem('userName');
+    if(userName){
     this._router.navigate(['costsharing-private']);
-    // costsharing-private
+    }else{
+      this._router.navigate(['costsharing-public']);
+    }
   }
 
   

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { LoginComponent } from './components/login/login.component';
 @Component({
   selector: 'app-root',
@@ -8,8 +8,17 @@ import { LoginComponent } from './components/login/login.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  loginUsername;
+  isLoggedIn: boolean = false;
+
   constructor(private _router: Router,
-    private _dialog: MatDialog){
+    private _dialog: MatDialog) {
+    if (localStorage.getItem("userName") == "") {
+      localStorage.setItem('userName', "");
+    } else {
+      this.loginUsername = localStorage.getItem("userName");
+      this.isLoggedIn = true;
+    }
 
   }
   title = 'tinC';
@@ -18,14 +27,20 @@ export class AppComponent {
     const dialogRef = this._dialog.open(LoginComponent, {
       width: '400px',
       height: '350px'
-     // data: {name: this.name, animal: this.animal}
-    });
 
+    });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      //this.animal = result;
+      this.isLoggedIn = true;
+      this.loginUsername = result;
+      localStorage.setItem('userName', this.loginUsername);
     });
   }
 
-  
+  logoutUser(){
+    debugger
+    this.isLoggedIn = false;
+    localStorage.removeItem("userName");
+    localStorage.removeItem("authToken");
+    this._router.navigate(['/'])
+  }
 }
