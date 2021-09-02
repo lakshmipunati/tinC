@@ -37,7 +37,7 @@
             <!-- Symbol Column -->
             <ng-container matColumnDef="copay">
                 <th mat-header-cell *matHeaderCellDef> Copay </th>
-                <td mat-cell *matCellDef="let element"> {{element.copay}} </td>
+                <td mat-cell *matCellDef="let element"> ${{element.copay}} </td>
             </ng-container>
 
             <ng-container matColumnDef="deductible">
@@ -47,7 +47,7 @@
 
             <ng-container matColumnDef="coinsurance">
                 <th mat-header-cell *matHeaderCellDef> Coinsurance </th>
-                <td mat-cell *matCellDef="let element"> {{element.coinsurance}} </td>
+                <td mat-cell *matCellDef="let element"> ${{element.coinsurance}} </td>
             </ng-container>
 
             <ng-container matColumnDef="negotiationamount">
@@ -99,9 +99,9 @@
                     <th class="th">Distance</th>
                 </tr>
                 <tr>
-                    <td class="td">{{hospitalDetailInfo.copay}}</td>
+                    <td class="td">${{hospitalDetailInfo.copay}}</td>
                     <td class="td">${{hospitalDetailInfo.deductible}}</td>
-                    <td class="td">{{hospitalDetailInfo.coinsurance}}</td>
+                    <td class="td">${{hospitalDetailInfo.coinsurance}}</td>
                     <td class="td">${{hospitalDetailInfo.negotiationamount}}</td>
                     <td class="td">{{hospitalDetailInfo.distance}}m</td>
                 </tr>

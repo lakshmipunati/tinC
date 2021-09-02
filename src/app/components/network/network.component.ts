@@ -31,6 +31,7 @@ export class NetworkComponent implements OnInit {
     if (this.selectedObj.isFrom == 'procedure') {
       this.getInNetworkData();
     } else if (this.selectedObj.isFrom == 'prescriptionDrug') {
+      document.getElementById("outNetworkBtn").style.background='#3f51b5';
       this.getDrugOfHospitals();
     } else {
       this.getInNetworkData();
@@ -39,15 +40,15 @@ export class NetworkComponent implements OnInit {
   }
 
   getHospitalDetails(data, selectedDivId,) {
-    if (this.prevCls != selectedDivId) {
-      if (this.prevCls) {
-        let prevVal = "#" + this.prevCls;
-        $(prevVal).removeClass("highlight");
-      }
-      let newCls = "#" + selectedDivId;
-      $(newCls).addClass('highlight');
-      this.prevCls = selectedDivId;
-    };
+    // if (this.prevCls != selectedDivId) {
+    //   if (this.prevCls) {
+    //     let prevVal = "#" + this.prevCls;
+    //     $(prevVal).removeClass("highlight");
+    //   }
+    //   let newCls = "#" + selectedDivId;
+    //   $(newCls).addClass('highlight');
+    //   this.prevCls = selectedDivId;
+    // };
     this.showInNetworkData = false;
     this.showOutOfNetworkData = false;
     this.showHospitalDetails = true;
