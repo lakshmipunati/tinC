@@ -80,21 +80,26 @@ button:focus {
 }
 
 table {
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    
     width: 100%;
     background: #FFF;
     border-spacing: 0;
 }
 
-.td,
-.th {
+.td
+ {
     text-align: center;
     padding: 8px;
     font-weight: 100;
 }
-
+.th {
+    text-align: center;
+    padding: 8px;
+    font-weight: 400;
+    font-size: 13px;
+}
 td {
-    font-size: 14px;
+    font-size: 13px;
 }
 
 tr {

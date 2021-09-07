@@ -15,12 +15,14 @@ export class CategoryDetailsComponent implements OnInit {
     private _commonHttpService:CommonAPIService) { }
 
   ngOnInit(): void {
+    debugger
     this.searchKey = this.route.snapshot.paramMap.get('categoryKey');
     this.getSubCategoryDetails();
   }
 
   getSubCategoryDetails(){
-    this._commonHttpService.getSearchResults(this.searchKey).subscribe((res) => {
+    debugger
+    this._commonHttpService.getCategoryDetail(this.searchKey).subscribe((res) => {
       if (res.status == 'success') {
           this.subCategoryList = res.data;
       } else {

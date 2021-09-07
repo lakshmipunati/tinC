@@ -35,7 +35,7 @@
             </div>
             <div *ngIf="showSelectedTypeInfo" style="display: flex;flex-wrap: wrap;">
                 <div *ngFor="let data of subCategoryList" style="padding: 4px;margin-top: 8px;">
-                    <span class="category cursor" (click)="getCategoryDetails(data.sub_category_name)">
+                    <span class="category cursor" (click)="getCategoryDetails(data.id)">
                         {{data.sub_category_name}}</span>
                 </div>
             </div>

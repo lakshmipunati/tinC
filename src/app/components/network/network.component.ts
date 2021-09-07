@@ -18,7 +18,7 @@ export class NetworkComponent implements OnInit {
   networkOutDataSource;
   selectedObj;
   prevCls: string = "";
-  
+  drug_detail_id: ""
   constructor(private _commonHttpService: CommonAPIService,
     private route: ActivatedRoute,
     private _snackBar: MatSnackBar,
@@ -28,27 +28,21 @@ export class NetworkComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.selectedObj = params;
     });
+    // debugger
     if (this.selectedObj.isFrom == 'procedure') {
+      document.getElementById("innetworkBtn").style.background = '#3f51b5';
+      document.getElementById("innetworkBtn").style.color = '#fff';
       this.getInNetworkData();
     } else if (this.selectedObj.isFrom == 'prescriptionDrug') {
-      document.getElementById("outNetworkBtn").style.background='#3f51b5';
+      document.getElementById("innetworkBtn").style.background = '#3f51b5';
+      document.getElementById("innetworkBtn").style.color = '#fff';
       this.getDrugOfHospitals();
     } else {
       this.getInNetworkData();
     }
-
   }
 
   getHospitalDetails(data, selectedDivId,) {
-    // if (this.prevCls != selectedDivId) {
-    //   if (this.prevCls) {
-    //     let prevVal = "#" + this.prevCls;
-    //     $(prevVal).removeClass("highlight");
-    //   }
-    //   let newCls = "#" + selectedDivId;
-    //   $(newCls).addClass('highlight');
-    //   this.prevCls = selectedDivId;
-    // };
     this.showInNetworkData = false;
     this.showOutOfNetworkData = false;
     this.showHospitalDetails = true;
@@ -63,7 +57,6 @@ export class NetworkComponent implements OnInit {
           this._snackBar.open(response.msg, 'Undo', {
             duration: 2000
           });
-          //alert(response.msg);
         }
       })
     } else if (this.selectedObj.isFrom == 'prescriptionDrug') {
@@ -80,7 +73,6 @@ export class NetworkComponent implements OnInit {
     }
   }
   backToResult() {
-    //debugger
     if (this.showInNetworkData == true) {
       this._router.navigate(['costsharing-private'])
     }
@@ -90,45 +82,62 @@ export class NetworkComponent implements OnInit {
 
   }
   getInNetworkData() {
-    document.getElementById("innetworkBtn").style.background='#3f51b5';
-    document.getElementById("innetworkBtn").style.color='#fff';
-    document.getElementById("outNetworkBtn").style.background='#fff';
-    
+    document.getElementById("innetworkBtn").style.background = '#3f51b5';
+    document.getElementById("innetworkBtn").style.color = '#fff';
+    document.getElementById("outNetworkBtn").style.background = '#fff';
     this.showInNetworkData = true;
     this.showOutOfNetworkData = false;
     this.showHospitalDetails = false;
-    this._commonHttpService.getHospitalsData(this.selectedObj.id).subscribe((response) => {
-      if (response.status == "success") {
-        this.dataSource = response.data;
-      } else {
-        this._snackBar.open(response.msg, 'Undo', {
-          duration: 2000
-        });
-      }
-    })
+    if (this.selectedObj.isFrom == 'procedure') {
+      this._commonHttpService.getHospitalsData(this.selectedObj.id).subscribe((response) => {
+        if (response.status == "success") {
+          this.dataSource = response.data;
+        } else {
+          this._snackBar.open(response.msg, 'Undo', {
+            duration: 2000
+          });
+        }
+      })
+    } else if (this.selectedObj.isFrom == 'prescriptionDrug') {
+      this.getDrugOfHospitals();
+    }
   }
   getOutOfNetworkData() {
-    document.getElementById("outNetworkBtn").style.background='#3f51b5';
-    document.getElementById("innetworkBtn").style.background='#fff';
-    document.getElementById("innetworkBtn").style.color='black';
+    document.getElementById("outNetworkBtn").style.background = '#3f51b5';
+    document.getElementById("innetworkBtn").style.background = '#fff';
+    document.getElementById("innetworkBtn").style.color = 'black';
     this.showInNetworkData = false;
     this.showOutOfNetworkData = true;
     this.showHospitalDetails = false;
-    this._commonHttpService.getOutNetworkData(this.selectedObj.id).subscribe((response) => {
-      if (response.status == "success") {
-        this.networkOutDataSource = response.data;
-      } else {
-        this._snackBar.open(response.msg, 'Undo', {
-          duration: 2000
-        });
-      }
-    })
+    if (this.selectedObj.isFrom == 'procedure') {
+      this._commonHttpService.getOutNetworkData(this.selectedObj.id).subscribe((response) => {
+        if (response.status == "success") {
+          this.networkOutDataSource = response.data;
+        } else {
+          this._snackBar.open(response.msg, 'Undo', {
+            duration: 2000
+          });
+        }
+      })
+    } else if (this.selectedObj.isFrom == 'prescriptionDrug') {
+      this.getOutNetworkDrugHospitals();
+    }
   }
   getDrugOfHospitals() {
     let obj = { drug_id: this.selectedObj.drug_id, dosage: this.selectedObj.dosage, qty: this.selectedObj.qty }
     this._commonHttpService.drugHospitals(obj).subscribe((res) => {
       if (res.status == 'success') {
         this.dataSource = res.data;
+        this.drug_detail_id = res.data[0].drug_detail_id
+      }
+    })
+  }
+
+  getOutNetworkDrugHospitals() {
+    // let obj = { drug_id: this.selectedObj.drug_id, dosage: this.selectedObj.dosage, qty: this.selectedObj.qty }
+    this._commonHttpService.getOutNetworDrugkData(this.drug_detail_id).subscribe((res) => {
+      if (res.status == 'success') {
+        this.networkOutDataSource = res.data;
       }
     })
   }

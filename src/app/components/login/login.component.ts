@@ -35,11 +35,6 @@ export class LoginComponent implements OnInit {
     this._commonHttpService.login(this.loginForm.value).subscribe((response) => {
       if (response.loggedIn_status == 1) {
         localStorage.setItem('authToken', response.token);
-        //alert("Login Success")
-        
-        this._snackBar.open('Login Success', 'Undo', {
-          duration: 2000
-        });
         this.dialogRef.close(response.user_name);
       } else {
         alert("Login Failed" + response.error)

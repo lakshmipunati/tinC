@@ -63,9 +63,9 @@
     <div style="margin-right:30px;margin-left: 30px;display: flex;" *ngIf="showHospitalDetails">
         <div style="width: 30%;">
             <p>Hospital</p>
-            <mat-divider></mat-divider>
+            <!-- <mat-divider></mat-divider> -->
             <div *ngFor="let data of dataSource;let i = index" style="margin:2px" id="{{i}}">
-                <button mat-raised-button class="pl-10 pt-10 cursor" style="width: 100%;background-color: #ddebe9" [attr.data-index]="i" (click)="getHospitalDetails(data, i)"> {{data.name}}</button>
+                <button mat-raised-button class="pl-10 pt-10 cursor" style="text-align: left;width: 100%;background-color: #ddebe9" [attr.data-index]="i" (click)="getHospitalDetails(data, i)"> {{data.name}}</button>
             </div>
 
         </div>
@@ -113,12 +113,27 @@
                     <th class="th">Rx Dosage</th>
                     <th class="th">Prerequisite</th>
                     <th class="th">Health Plan Share Estimate</th>
+                    <th></th>
                 </tr>
                 <tr>
                     <td class="td">{{hospitalDetailInfo.rx_qty}}</td>
                     <td class="td">{{hospitalDetailInfo.rx_dosage}}</td>
                     <td class="td">{{hospitalDetailInfo.prerequisite}}</td>
-                    <td class="td">{{hospitalDetailInfo.health_Plan_Share}}</td>
+                    <td class="td">${{hospitalDetailInfo.health_Plan_Share}}</td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <table style="width: 90%;margin-left: 20px;margin-top:10px;">
+                <tr>
+                    <th class="th">Deductible YTD</th>
+                    <th class="th">Out-of-Pocket YTD</th>
+                    <th class="th">Member Share Estimate</th>
+                </tr>
+                <tr>
+                    <td class="td">${{hospitalDetailInfo.deductibleYTD}}</td>
+                    <td class="td">${{hospitalDetailInfo.out_of_pocket }}</td>
+                    <td class="td">${{hospitalDetailInfo.member_share}}</td>
                 </tr>
             </table>
         </div>

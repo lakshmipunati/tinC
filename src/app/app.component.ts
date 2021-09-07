@@ -13,7 +13,8 @@ export class AppComponent {
 
   constructor(private _router: Router,
     private _dialog: MatDialog) {
-    if (localStorage.getItem("userName") == "") {
+      localStorage.getItem("userName")
+    if (localStorage.getItem("userName") == "" || localStorage.getItem("userName") == null) {
       localStorage.setItem('userName', "");
     } else {
       this.loginUsername = localStorage.getItem("userName");
@@ -33,6 +34,7 @@ export class AppComponent {
       this.isLoggedIn = true;
       this.loginUsername = result;
       localStorage.setItem('userName', this.loginUsername);
+      this._router.navigate(['home']);
     });
   }
 

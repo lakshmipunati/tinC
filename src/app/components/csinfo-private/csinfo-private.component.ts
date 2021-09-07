@@ -35,10 +35,11 @@ export class CostSharingPrivateComponent implements OnInit {
         this.getProcedureData();
     }
     getProcedureData() {
-        document.getElementById("procedureBtn").style.background='#3f51b5';
-        document.getElementById("procedureBtn").style.color='#fff';
-        document.getElementById("procedureDrugBtn").style.background='#fff';
+        document.getElementById("procedureBtn").style.background = '#3f51b5';
+        document.getElementById("procedureBtn").style.color = '#fff';
+        document.getElementById("procedureDrugBtn").style.background = '#fff';
         this.showProcedure = true;
+        
         this._commonHttpService.getCategoryDetails().subscribe((res) => {
             if (res.status == "success") {
                 this.categoryList = res.categories;
@@ -62,9 +63,9 @@ export class CostSharingPrivateComponent implements OnInit {
     }
     getProcedureDrugData() {
         this.showProcedure = false;
-        document.getElementById("procedureBtn").style.background='#fff';
-        document.getElementById("procedureDrugBtn").style.background='#3f51b5';
-        document.getElementById("procedureBtn").style.color='black';
+        document.getElementById("procedureBtn").style.background = '#fff';
+        document.getElementById("procedureDrugBtn").style.background = '#3f51b5';
+        document.getElementById("procedureBtn").style.color = 'black';
     }
 
     getSelectedTypeInfo(categoryId) {
@@ -79,6 +80,7 @@ export class CostSharingPrivateComponent implements OnInit {
     }
 
     getCategoryDetails(value) {
+        debugger
         this._router.navigate(['category-details', value])
     }
 
@@ -94,6 +96,11 @@ export class CostSharingPrivateComponent implements OnInit {
             })
         }
     }
+
+    // getCategoryDetail(){
+
+    // }
+
     getDosageData(drugId, drugName) {
         this.drugId = drugId;
         this.drugName = drugName;
@@ -125,7 +132,7 @@ export class CostSharingPrivateComponent implements OnInit {
     }
 
     getDrugHospitals() {
-        let data = { isFrom: "prescriptionDrug", drug_id: this.drugId, dosage: this.dosage, qty: this.quantity, drugName: this.drugName };
+        let data = { isFrom: "prescriptionDrug", drug_id: this.drugId, dosage: this.dosage, qty: this.quantity, drugName: this.drugName, drug_detail_id: "" };
         let navigationExtras: NavigationExtras = {
             queryParams: data
         }

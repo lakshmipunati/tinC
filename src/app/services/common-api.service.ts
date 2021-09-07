@@ -24,6 +24,10 @@ export class CommonAPIService {
         return this._httpClient.get(this.baseURL + "/subCategory/" + categoryId, { headers: this.headers })
     }
 
+    getCategoryDetail(subCategoryId): Observable<any> {
+        return this._httpClient.get(this.baseURL + "/categoryDetail/" + subCategoryId, { headers: this.headers })
+    }
+
     getSearchResults(searchValue): Observable<any> {
         let obj = { search_val: searchValue }
         return this._httpClient.post(this.baseURL + "/search", obj, { headers: this.headers })
@@ -40,6 +44,9 @@ export class CommonAPIService {
 
     getOutNetworkData(id): Observable<any> {
         return this._httpClient.get(this.baseURL + "/outNetwork/" + id, { headers: this.headers })
+    }
+    getOutNetworDrugkData(id): Observable<any> {
+        return this._httpClient.get(this.baseURL + "/outNetworkDrug/" + id, { headers: this.headers })
     }
 
     searchDrugData(searchValue): Observable<any> {

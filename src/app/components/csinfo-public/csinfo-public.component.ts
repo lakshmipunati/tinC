@@ -16,6 +16,7 @@ export class CostSharingPublicComponent implements OnInit {
     }
     openDoc() {
         let myWindow = window.open("", "MsgWindow");
+        myWindow.document.write('<title>Abc Inc</title>');
         myWindow.document.write(`<pre>{
             "reporting_entity_name": "Abc Inc",
             "reporting_entity_type": "ABC",
@@ -148,6 +149,7 @@ export class CostSharingPublicComponent implements OnInit {
 
     openIINDoc() {
         let myWindow = window.open("", "MsgWindow");
+        myWindow.document.write('<title>Abc Inc</title>');
         myWindow.document.write(`<pre>[
             {
                 "reporting_entity_name": "Abc Inc",
@@ -2038,6 +2040,7 @@ export class CostSharingPublicComponent implements OnInit {
     
     openOONDoc() {
         let myWindow = window.open("", "MsgWindow");
+        myWindow.document.write('<title>medicare</title>');
         myWindow.document.write(`<pre>{
             "reporting_entity_name": "medicare",
             "reporting_entity_type": "medicare",
