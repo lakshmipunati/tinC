@@ -79,7 +79,9 @@ export class NetworkComponent implements OnInit {
     this.showInNetworkData = true;
     this.showHospitalDetails = false;
     this.showOutOfNetworkData = false;
-
+    document.getElementById("innetworkBtn").style.background = '#3f51b5';
+    document.getElementById("innetworkBtn").style.color = '#fff';
+    document.getElementById("outNetworkBtn").style.background = '#fff';
   }
   getInNetworkData() {
     document.getElementById("innetworkBtn").style.background = '#3f51b5';

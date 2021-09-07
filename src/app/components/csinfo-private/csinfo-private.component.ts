@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { CommonAPIService } from '../../services/common-api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { HttpHeaders } from '@angular/common/http'
 @Component({
     selector: '',
     templateUrl: './csinfo-private.html',
@@ -25,22 +26,22 @@ export class CostSharingPrivateComponent implements OnInit {
     dosage: "";
     drugId: "";
     drugName: "";
-    //sampleTest= "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+    
     constructor(private _router: Router,
         private _commonHttpService: CommonAPIService,
-        private _snackBar: MatSnackBar) {
+        private _snackBar: MatSnackBar) { }
 
-    }
     ngOnInit() {
         this.getProcedureData();
     }
+
     getProcedureData() {
         document.getElementById("procedureBtn").style.background = '#3f51b5';
         document.getElementById("procedureBtn").style.color = '#fff';
         document.getElementById("procedureDrugBtn").style.background = '#fff';
         this.showProcedure = true;
-        
-        this._commonHttpService.getCategoryDetails().subscribe((res) => {
+        let headers = new HttpHeaders({ 'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('authToken') });
+        this._commonHttpService.getCategoryDetails(headers).subscribe((res) => {
             if (res.status == "success") {
                 this.categoryList = res.categories;
             } else {
@@ -80,7 +81,6 @@ export class CostSharingPrivateComponent implements OnInit {
     }
 
     getCategoryDetails(value) {
-        debugger
         this._router.navigate(['category-details', value])
     }
 

@@ -16,8 +16,9 @@ export class CommonAPIService {
         return this._httpClient.post(this.baseURL + "/login", request);
     }
 
-    getCategoryDetails(): Observable<any> {
-        return this._httpClient.get(this.baseURL + "/category", { headers: this.headers })
+    getCategoryDetails(headers): Observable<any> {
+        debugger
+        return this._httpClient.get(this.baseURL + "/category", { headers: headers })
     }
 
     getSubCategoryList(categoryId): Observable<any> {

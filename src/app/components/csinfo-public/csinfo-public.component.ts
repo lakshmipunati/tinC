@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CostSharingPublicComponent implements OnInit {
-    value = "Window test"
+    value = "Window test";
+    openIINDocHref= "./IINDOC.json"
     constructor() {
 
     }
@@ -15,8 +16,8 @@ export class CostSharingPublicComponent implements OnInit {
 
     }
     openDoc() {
-        let myWindow = window.open("", "MsgWindow");
-        myWindow.document.write('<title>Abc Inc</title>');
+        let myWindow = window.open('',"_blank",'PopUp');
+        myWindow.document.write('<title>In Network Prescription</title>');
         myWindow.document.write(`<pre>{
             "reporting_entity_name": "Abc Inc",
             "reporting_entity_type": "ABC",
@@ -148,9 +149,10 @@ export class CostSharingPublicComponent implements OnInit {
     }
 
     openIINDoc() {
-        let myWindow = window.open("", "MsgWindow");
-        myWindow.document.write('<title>Abc Inc</title>');
-        myWindow.document.write(`<pre>[
+        let myWindow = window.open('',"_blank",'PopUp');
+        myWindow.document.write('<title>IIN</title>');
+        myWindow.document.write(`<pre>
+        [
             {
                 "reporting_entity_name": "Abc Inc",
                 "reporting_entity_type": "ABC",
@@ -2039,8 +2041,8 @@ export class CostSharingPublicComponent implements OnInit {
     }
     
     openOONDoc() {
-        let myWindow = window.open("", "MsgWindow");
-        myWindow.document.write('<title>medicare</title>');
+        let myWindow = window.open('',"_blank",'PopUp');
+        myWindow.document.write('<title>out_of_network</title>');
         myWindow.document.write(`<pre>{
             "reporting_entity_name": "medicare",
             "reporting_entity_type": "medicare",
